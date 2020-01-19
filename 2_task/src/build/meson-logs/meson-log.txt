@@ -1,0 +1,10 @@
+Build started at 2019-11-29T10:16:29.014263
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.51.2
+Source dir: /home/carpawell/System Programming Technology/Second task/src
+Build dir: /home/carpawell/System Programming Technology/Second task/src/build
+Build type: native build
+
+ERROR: First statement must be a call to project
