@@ -1,5 +1,5 @@
 project(
-	'my_Vector',
+	'myVector',
 	'cpp',
 	version: '0.0.1',
 	meson_version: '>=0.46',
