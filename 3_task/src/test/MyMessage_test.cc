@@ -3,13 +3,13 @@
 #include <iostream>
 #include <string>
 
-TEST(MyMessage, WrongNumOfArgs){
+TEST(MY_MESSAGE, WRONG_NUM_OF_ARGS){
     EXPECT_FALSE(message(std::cout, "% + % = %", "test_string", 5));
     EXPECT_FALSE(message(std::cout, "% + % = %", 1));
     EXPECT_FALSE(message(std::cout, "% + % = %", "test_string", 10, 20, 30.0));
 }
 
-TEST(MyMessage, String){
+TEST(MY_MESSAGE, STRING){
     std::stringstream strings_outstream;
 
     message(strings_outstream, "% + % = %", "a", 1, 3.0);

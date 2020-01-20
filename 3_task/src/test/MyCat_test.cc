@@ -2,7 +2,7 @@
 #include <myproject/MyCat.h>
 #include <array>
 
-TEST(cat, test1array){
+TEST(CAT, TEST1ARRAYS){
     std::array<float, 3> vec1{1.0f, 2.0f, 3.0f};
 
     std::array<float, 3> r = cat(vec1);  
@@ -12,7 +12,7 @@ TEST(cat, test1array){
     EXPECT_EQ(r[2], 3.0f);  
 }
 
-TEST(cat, test2arrays){
+TEST(CAT, TEST2ARRAYS){
     std::array<int, 3> vec1{1, 2, 3};
     std::array<int, 3> vec2{4, 5, 6};
 
@@ -26,7 +26,7 @@ TEST(cat, test2arrays){
     EXPECT_EQ(r[5], 6);    
 }
 
-TEST(cat, test3arrays){
+TEST(cat, TEST3ARRAYS){
     std::array<float, 3> vec1{1.0f, 2.0f, 3.0f};
     std::array<float, 2> vec2{4.0f, 5.0f};
     std::array<float, 3> vec3{6.0f, 7.0f, 8.0f};

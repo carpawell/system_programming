@@ -2,7 +2,7 @@
 #include <myproject/MyTie.h>
 #include <array>
 
-TEST(MyTie, test2arrays){
+TEST(MY_TIE, TEST2ARRAYS){
     std::array<int, 6> r{1, 2, 3, 4, 5, 6};
     std::array<int, 3> vec1, vec2;
 
@@ -16,7 +16,7 @@ TEST(MyTie, test2arrays){
     EXPECT_EQ(vec2[2], 6);
 }
 
-TEST(MyTie, test3arrays){
+TEST(MY_TIE, TEST3ARRAYS){
     std::array<int, 6> r{1, 2, 3, 4, 5, 6};
     std::array<int, 2> vec1, vec2, vec3;
 
