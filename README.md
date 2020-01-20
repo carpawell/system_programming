@@ -6,10 +6,10 @@
 4) done
 5) done
 6) done
-7)
-8)
-9)
-10)
+7) done
+8) done
+9) done
+10) done
 11)
 12)
 13)
