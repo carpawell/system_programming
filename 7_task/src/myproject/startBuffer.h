@@ -2,50 +2,53 @@
 #include <string>
 #include <cctype>
 
-class stat_buffer: public std::streambuf{
+class stat_buffer: public std::streambuf {
 private:
     std::streambuf* buf;
     int strCount;
     int wordCount;
     int charCount;
-    bool prevCharIsAlpha;
+    bool prevCharIsAlpha;    
 public:
-    explicit stat_buffer(std::streambuf* b):buf(b) { strCount=0; wordCount=0;
-        charCount=0; prevCharIsAlpha=false;}
+    stat_buffer(std::streambuf* b): buf(b) {
+        strCount = 0;
+        wordCount = 0;
+        charCount = 0;
+        prevCharIsAlpha = false;
+    }
 
-    int getStrCount(){
+    int getStrCount() {
         return strCount;
     }
 
-    int getWordCount(){
+    int getWordCount() {
         return wordCount;
     }
 
-    int getCharCount(){
+    int getCharCount() {
         return charCount;
     }
-protected:
-    int_type underflow() override{
+    int_type underflow() {
         int_type c = buf->sbumpc();
 
-        if(c != traits_type::eof()){
-            if(std::isalpha(c)){
-                if(!prevCharIsAlpha){
+        if(c != traits_type::eof()) {
+            if(std::isalpha(c)) {
+                if(!prevCharIsAlpha) {
                     wordCount++;
-                    prevCharIsAlpha=true;
+                    prevCharIsAlpha = true;
                 }
-            } else{
-                prevCharIsAlpha=false;
+            } else {
+                prevCharIsAlpha = false;
             }
 
-            if(c=='\n'){
+            if(c == '\n') {
                 strCount++;
             }
 
             charCount++;
 
             char ch = traits_type::to_char_type(c);
-            setg(&ch, &ch, &ch+1);
+            setg(&ch, &ch, &ch + 1);
         }
 
         return c;
