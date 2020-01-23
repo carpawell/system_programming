@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <vector>
-#include "../myproject/MergeSort.h"
+#include "myproject/MergeSort.h"
 
 TEST(MERGE_SORT_THREAD, NORMAL_VECTOR) {
     std::vector<int> v1{9, 8, 7, 6, 5, 4, 3, 2, 1, 0};

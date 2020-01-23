@@ -2,13 +2,12 @@
 #include <vector>
 #include <algorithm>
 #include <thread>
-#include <cmath>
 #include <iostream>
 #include <mutex>
 
 using namespace std::chrono;
 
-#define THREAD_MAX std::thread::hardware_concurrency()
+auto THREAD_MAX = std::thread::hardware_concurrency();
 
 std::vector<std::thread> threads{THREAD_MAX};
 
@@ -17,7 +16,7 @@ std::mutex mutex;
 template<typename T>
 void merge_sort_in_threads(T first, T last) {
 
-    int size = std::distance(first, last);
+    int size = last - first;
 
     if (first == last || size == 1) {
         return;
@@ -52,6 +51,14 @@ void merge_sort_in_threads(T first, T last) {
     std::inplace_merge(first, middle, last);
 }
 
+long merge_sort_in_threads(std::vector<int> &vec) {
+    auto start = system_clock::now();
+    merge_sort_in_threads(vec.begin(), vec.end());
+    auto end = system_clock::now();
+    milliseconds elapsed = duration_cast<milliseconds>(end - start);
+    return elapsed.count();
+}
+
 template<class Iterator>
 void merge_sort(Iterator first, Iterator last) {
     if (last - first > 1) {
@@ -61,16 +68,6 @@ void merge_sort(Iterator first, Iterator last) {
         std::inplace_merge(first, middle, last);
     }
 }
-
-
-long merge_sort_in_threads(std::vector<int> &vec) {
-    auto start = system_clock::now();
-    merge_sort_in_threads(vec.begin(), vec.end());
-    auto end = system_clock::now();
-    milliseconds elapsed = duration_cast<milliseconds>(end - start);
-    return elapsed.count();
-}
-
 
 long merge_sort_consistent(std::vector<int> &vec) {
     auto start = system_clock::now();
